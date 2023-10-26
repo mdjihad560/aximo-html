@@ -108,6 +108,13 @@
     fugu PRICING TABLE JS INIT
     ------------------------------------------------------------*/
 
+    var $rotateTwo = $('#rotatetwo');
+    var $win = $(window);
+    $win.on('scroll', function () {
+      var right = 14 - $win.scrollTop() * 0.01;
+      $rotateTwo.css('transform', 'rotate(' + right + 'deg)');
+    });
+
     /*--------------------------------------------------------------
     fugu PRICING TABLE JS INIT
     ------------------------------------------------------------*/
@@ -130,15 +137,8 @@
     var swiper = new Swiper(".aximo-project-slider", {
       // Optional parameters
       spaceBetween: 30,
-      centeredSlides: true,
-      // grabCursor: true,
-      // freeMode: false,
-      loop: true,
-      mousewheel: false,
-      autoplay: {
-        delay: 4000
-      },
-      // If we need pagination
+      direction: 'horizontal',
+      mousewheel: true,
       pagination: {
         el: ".swiper-pagination",
         clickable: true
@@ -152,7 +152,7 @@
           slidesPerView: 2
         },
         1600: {
-          slidesPerView: 3
+          slidesPerView: 3.5
         }
       }
     });
@@ -167,6 +167,61 @@
         mainClass: 'mfp-fade'
       });
     }
+
+    /*--------------------------------------------------------------
+    fugu MAGNIFIC POPUP JS INIT
+    ------------------------------------------------------------*/
+    gsap.set('.aximo-service-increase-item img.swipeimage', {
+      yPercent: -50,
+      xPercent: -50
+    });
+    gsap.utils.toArray(".aximo-service-increase-row").forEach(function (el) {
+      var image = el.querySelector('img.swipeimage'),
+        setX = gsap.quickSetter(image, "x", "px"),
+        setY = gsap.quickSetter(image, "y", "px"),
+        align = function align(e) {
+          setX(e.clientX);
+          setY(e.clientY);
+        },
+        startFollow = function startFollow() {
+          return document.addEventListener("mousemove", align);
+        },
+        stopFollow = function stopFollow() {
+          return document.removeEventListener("mousemove", align);
+        },
+        fade = gsap.to(image, {
+          autoAlpha: 1,
+          ease: "none",
+          paused: true,
+          onReverseComplete: stopFollow
+        });
+      el.addEventListener('mouseenter', function (e) {
+        fade.play();
+        startFollow();
+        align(e);
+      });
+      el.addEventListener('mouseleave', function () {
+        return fade.reverse();
+      });
+    });
+
+    //BEST VIEWED AT FULL SCREEN MOBILE VERSION 
+    //IT IS CURRENTLY NOT RESPONSIVE
+
+    // gsap.defaults({ease:"none", duration: .1})
+
+    // let tl = gsap.timeline({scrollTrigger:{
+    // 	trigger: ".parallaxbox",
+    // 	start: "top",
+    // 	end: "bottom",
+    // 	toggleActions: "restart none none reverse",
+    // 	scrub: 1,
+    // 	pin: true
+    // }})
+
+    // .from(".one", {y:50})
+    // .from(".two", {y:100}, 0)
+    // .from(".three", {y:150}, 0)
   }); /*End document ready*/
 
   $(window).on("resize", function () {}); // end window resize
