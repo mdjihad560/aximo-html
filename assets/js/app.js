@@ -134,7 +134,7 @@
     /*--------------------------------------------------------------
     fugu PRICING TABLE JS INIT
     ------------------------------------------------------------*/
-    var swiper = new Swiper(".aximo-project-slider", {
+    var aximo_project_slider = new Swiper(".aximo-project-slider", {
       // Optional parameters
       spaceBetween: 30,
       direction: 'horizontal',
@@ -158,9 +158,35 @@
     });
 
     /*--------------------------------------------------------------
+    fugu PRICING TABLE JS INIT
+    ------------------------------------------------------------*/
+    var aximo_project_slider2 = new Swiper(".aximo-project-slider2", {
+      // Optional parameters
+      spaceBetween: 24,
+      direction: 'horizontal',
+      mousewheel: true,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true
+      },
+      // Responsive breakpoints
+      breakpoints: {
+        640: {
+          slidesPerView: 1
+        },
+        900: {
+          slidesPerView: 2
+        },
+        1600: {
+          slidesPerView: 3
+        }
+      }
+    });
+
+    /*--------------------------------------------------------------
     fugu MAGNIFIC POPUP JS INIT
     ------------------------------------------------------------*/
-    var popup_youtube = $('.aximo-video-popup');
+    var popup_youtube = $('.video-init');
     if (popup_youtube.is_exist()) {
       popup_youtube.magnificPopup({
         type: 'iframe',
@@ -171,39 +197,6 @@
     /*--------------------------------------------------------------
     fugu MAGNIFIC POPUP JS INIT
     ------------------------------------------------------------*/
-    gsap.set('.aximo-service-increase-item img.swipeimage', {
-      yPercent: -50,
-      xPercent: -50
-    });
-    gsap.utils.toArray(".aximo-service-increase-row").forEach(function (el) {
-      var image = el.querySelector('img.swipeimage'),
-        setX = gsap.quickSetter(image, "x", "px"),
-        setY = gsap.quickSetter(image, "y", "px"),
-        align = function align(e) {
-          setX(e.clientX);
-          setY(e.clientY);
-        },
-        startFollow = function startFollow() {
-          return document.addEventListener("mousemove", align);
-        },
-        stopFollow = function stopFollow() {
-          return document.removeEventListener("mousemove", align);
-        },
-        fade = gsap.to(image, {
-          autoAlpha: 1,
-          ease: "none",
-          paused: true,
-          onReverseComplete: stopFollow
-        });
-      el.addEventListener('mouseenter', function (e) {
-        fade.play();
-        startFollow();
-        align(e);
-      });
-      el.addEventListener('mouseleave', function () {
-        return fade.reverse();
-      });
-    });
 
     //BEST VIEWED AT FULL SCREEN MOBILE VERSION 
     //IT IS CURRENTLY NOT RESPONSIVE
