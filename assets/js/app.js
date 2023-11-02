@@ -111,7 +111,7 @@
     var $rotateTwo = $('#rotatetwo');
     var $win = $(window);
     $win.on('scroll', function () {
-      var right = 14 - $win.scrollTop() * 0.01;
+      var right = 18 - $win.scrollTop() * 0.01;
       $rotateTwo.css('transform', 'rotate(' + right + 'deg)');
     });
 
@@ -136,7 +136,7 @@
     ------------------------------------------------------------*/
     var aximo_project_slider = new Swiper(".aximo-project-slider", {
       // Optional parameters
-      spaceBetween: 30,
+      spaceBetween: 24,
       direction: 'horizontal',
       mousewheel: true,
       pagination: {
@@ -181,40 +181,6 @@
         }
       }
     });
-    var $swiperSelector = $('.swiper-container');
-    $swiperSelector.each(function (index) {
-      var $this = $(this);
-      $this.addClass('swiper-slider-' + index);
-      var dragSize = $this.data('drag-size') ? $this.data('drag-size') : 50;
-      var freeMode = $this.data('free-mode') ? $this.data('free-mode') : false;
-      var loop = $this.data('loop') ? $this.data('loop') : false;
-      var slidesDesktop = $this.data('slides-desktop') ? $this.data('slides-desktop') : 4;
-      var slidesTablet = $this.data('slides-tablet') ? $this.data('slides-tablet') : 3;
-      var slidesMobile = $this.data('slides-mobile') ? $this.data('slides-mobile') : 2.5;
-      var spaceBetween = $this.data('space-between') ? $this.data('space-between') : 20;
-      var swiper = new Swiper('.swiper-slider-' + index, {
-        direction: 'horizontal',
-        loop: loop,
-        freeMode: freeMode,
-        spaceBetween: spaceBetween,
-        breakpoints: {
-          1920: {
-            slidesPerView: slidesDesktop
-          },
-          992: {
-            slidesPerView: slidesTablet
-          },
-          320: {
-            slidesPerView: slidesMobile
-          }
-        },
-        scrollbar: {
-          el: '.swiper-scrollbar',
-          draggable: true,
-          dragSize: dragSize
-        }
-      });
-    });
 
     /*--------------------------------------------------------------
     fugu MAGNIFIC POPUP JS INIT
@@ -231,23 +197,55 @@
     fugu MAGNIFIC POPUP JS INIT
     ------------------------------------------------------------*/
 
-    //BEST VIEWED AT FULL SCREEN MOBILE VERSION 
-    //IT IS CURRENTLY NOT RESPONSIVE
-
-    // gsap.defaults({ease:"none", duration: .1})
-
-    // let tl = gsap.timeline({scrollTrigger:{
-    // 	trigger: ".parallaxbox",
-    // 	start: "top",
-    // 	end: "bottom",
-    // 	toggleActions: "restart none none reverse",
-    // 	scrub: 1,
-    // 	pin: true
-    // }})
-
-    // .from(".one", {y:50})
-    // .from(".two", {y:100}, 0)
-    // .from(".three", {y:150}, 0)
+    gsap.set('.aximo-service-increase-row img.swipeimage', {
+      yPercent: -50,
+      xPercent: -50
+    });
+    var activeImage;
+    gsap.utils.toArray(".aximo-service-increase-row").forEach(function (el) {
+      var image = el.querySelector('img.swipeimage'),
+        setX,
+        setY,
+        align = function align(e) {
+          setX(e.clientX);
+          setY(e.clientY);
+        },
+        startFollow = function startFollow() {
+          return document.addEventListener("mousemove", align);
+        },
+        stopFollow = function stopFollow() {
+          return document.removeEventListener("mousemove", align);
+        },
+        fade = gsap.to(image, {
+          autoAlpha: 1,
+          ease: "none",
+          paused: true,
+          onReverseComplete: stopFollow
+        });
+      el.addEventListener('mouseenter', function (e) {
+        fade.play();
+        startFollow();
+        if (activeImage) {
+          // if there's an actively-animating one, we should match its position here
+          gsap.set(image, {
+            x: gsap.getProperty(activeImage, "x"),
+            y: gsap.getProperty(activeImage, "y")
+          });
+        }
+        activeImage = image;
+        setX = gsap.quickTo(image, "x", {
+          duration: 0.6,
+          ease: "power3"
+        }), setY = gsap.quickTo(image, "y", {
+          duration: 0.6,
+          ease: "power3"
+        });
+        align(e);
+      });
+      el.addEventListener('mouseleave', function () {
+        return fade.reverse();
+      });
+    });
   }); /*End document ready*/
 
   $(window).on("resize", function () {}); // end window resize
