@@ -73,6 +73,17 @@
     });
 
     /*--------------------------------------------------------------
+    fugu STICKY MENU JS INIT
+    --------------------------------------------------------------*/
+    $(".barger-menu").on("click", function (e) {
+      $(".aximo-sidemenu-column, .offcanvas-overlay").addClass("active");
+      event.preventDefault(e);
+    });
+    $(".aximo-sidemenu-close, .offcanvas-overlay").on("click", function () {
+      $(".aximo-sidemenu-column, .offcanvas-overlay").removeClass("active");
+    });
+
+    /*--------------------------------------------------------------
     COUNTER JS INIT
     --------------------------------------------------------------*/
     var aximo_counter = $('#aximo-counter');

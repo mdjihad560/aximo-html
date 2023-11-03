@@ -1871,6 +1871,122 @@ header.aximo-header-section.aximo-header3.sticky-menu {
   align-items: center;
 }
 
+.aximo-sidemenu-wraper {
+  position: relative;
+}
+
+.aximo-sidemenu-column {
+  width: 485px;
+  display: block;
+  background: #191931;
+  height: 100%;
+  position: fixed;
+  z-index: 111;
+  padding: 30px;
+  margin-right: -485px;
+  transition: 0.5s;
+  right: 0;
+  top: 0;
+  padding-top: 70px;
+  overflow-y: scroll;
+}
+.aximo-sidemenu-column .aximo-info-wrap {
+  margin-top: 35px;
+  margin-bottom: 35px;
+}
+.aximo-sidemenu-column .aximo-social-icon.aximo-social-icon3 {
+  margin-bottom: 30px;
+}
+.aximo-sidemenu-column .aximo-copywirht4.light p {
+  font-size: 16px;
+}
+.aximo-sidemenu-column .aximo-info ul li {
+  color: var(--orange-color2);
+}
+
+.aximo-sidemenu-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.aximo-sidemenu-column.active {
+  margin-right: 0px;
+  z-index: 9999;
+}
+
+.aximo-sidemenu-close {
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #333333;
+  padding: 5px;
+  transition: all linear 0.3s;
+  cursor: pointer;
+  background-color: #fff;
+  transition: all 0.4s;
+  line-height: 1;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0;
+  background-color: var(--orange-color2);
+}
+
+.active .aximo-sidemenu-close {
+  opacity: 1;
+  visibility: visible;
+}
+
+.offcanvas-overlay {
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  position: fixed;
+  z-index: 0;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.5s;
+}
+
+.offcanvas-overlay.active {
+  opacity: 0.7;
+  z-index: 111;
+  visibility: visible;
+}
+
+.aximo-sidemenu-logo {
+  margin-bottom: 30px;
+}
+
+.aximo-sidemenu-body p {
+  color: var(--white-smoke);
+}
+
+.aximo-sidemenu-column::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #F5F5F5;
+}
+
+.aximo-sidemenu-column::-webkit-scrollbar {
+  width: 5px;
+  background-color: #F5F5F5;
+}
+
+.aximo-sidemenu-column::-webkit-scrollbar-thumb {
+  background-color: #000000;
+  border: 2px solid #555555;
+}
+
+@media (max-width: 991px) {
+  .aximo-sidemenu-wraper {
+    display: none;
+  }
+}
 .aximo-footer-top .aximo-default-content {
   margin-right: 50px;
 }
