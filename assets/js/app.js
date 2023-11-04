@@ -41,7 +41,7 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
     fugu PRELOADER JS INIT
     --------------------------------------------------------------*/
 
-    // $(".fugu-preloader").fadeOut(500);
+    $(".aximo-spinner-box").fadeOut(500);
 
     /*--------------------------------------------------------------
     fugu SCROLL TOP JS INIT
