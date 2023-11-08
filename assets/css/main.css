@@ -368,6 +368,12 @@
 .aximo-header2 .site-menu-main .nav-link-item {
   color: var(--heading-color2);
 }
+.aximo-header4 .site-menu-main .nav-link-item {
+  color: var(--heading-color3);
+}
+.aximo-header5 .site-menu-main .nav-link-item {
+  color: var(--light-color4);
+}
 
 @media (min-width: 992px) {
   .site-menu-main .nav-link-item {
@@ -454,7 +460,7 @@
 
 .site-menu-main .sub-menu--item > a {
   color: inherit;
-  padding: 6px 20px;
+  padding: 4px 20px;
   font-weight: 700;
   color: #000;
 }
@@ -465,9 +471,9 @@
   }
 }
 
-.site-menu-main .sub-menu--item:hover > a {
-  color: #FFC947;
-}
+/* .site-menu-main .sub-menu--item:hover > a {
+  color: var(--accent-color);
+} */
 
 @media (min-width: 992px) {
   .site-menu-main .sub-menu.megamenu {

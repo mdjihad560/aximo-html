@@ -9,22 +9,19 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
 
   /*------------------------------------------------------------------
   [Table of contents]
-  fugu STICKY MENU JS INIT
-  fugu COUNTER JS INIT
-  fugu TEXT SLIDER
-  fugu TEXT SLIDER 2
-  fugu CLIENT SLIDER
-  fugu CLIENT SLIDER 2
-  fugu TESTIMONIAL SLIDER
-  fugu TESTIMONIAL SLIDER 2
-  fugu PRICING TABLE JS INIT
-  fugu SCROLL EFFECT TWO JS INIT 01
-  fugu SCROLL EFFECT TWO JS INIT 02
-  fugu MAGNIFIC POPUP JS INIT
-  fugu GALLERY MASONAY FILTER JS 01
-  fugu GALLERY MASONAY FILTER JS 02
-  fugu GALLERY MASONAY FILTER JS 03
-  fugu MAP JS
+  AXIMO PRELOADER JS INIT
+  AXIMO SKILLBAR JS INIT
+  AXIMO MENU SIDEBAR JS INIT
+  AXIMO COUNTER JS INIT
+  AXIMO IMAGE ROTATE JS INIT
+  AXIMO AUTO SLIDER JS INIT
+  AXIMO PROJECT SLIDER JS INIT
+  AXIMO PROJECT SLIDER2 JS INIT
+  AXIMO MAGNIFIC POPUP JS INIT
+  AXIMO IMAGE SWIPE HOVER JS INIT
+  AXIMO PRICING TABLE JS INIT
+  AXIMO MAP JS
+  AXIMO wow js
   
   -------------------------------------------------------------------*/
 
@@ -38,36 +35,26 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
   $(function () {
     var _Swiper;
     /*--------------------------------------------------------------
-    fugu PRELOADER JS INIT
+    AXIMO PRELOADER JS INIT
     --------------------------------------------------------------*/
 
     $(".aximo-spinner-box").fadeOut(500);
 
     /*--------------------------------------------------------------
-    fugu SCROLL TOP JS INIT
-    --------------------------------------------------------------*/
-    // const myText = new SplitType('.my-text');
-
-    // gsap.registerPlugin(ScrollTrigger);
-
-    // const animateText = () => {
-    //   gsap.to('.char', {
-    //     y: 0,
-    //     stagger: 0.05,
-    //     delay: 0.4,
-    //     duration: .2
-    //   });
-    // };
-
-    // const triggerElement = document.querySelector('.my-text');
-
-    // ScrollTrigger.create({
-    //   trigger: triggerElement,
-    //   onEnter: animateText
-    // });
+    AXIMO SKILLBAR JS INIT
+    ------------------------------------------------------------*/
+    var skillbar = $('.aximo-skillbar');
+    if (skillbar.is_exist()) {
+      skillbar.skillBars({
+        from: 0,
+        speed: 4000,
+        interval: 100,
+        decimals: 0
+      });
+    }
 
     /*--------------------------------------------------------------
-    fugu STICKY MENU JS INIT
+    AXIMO STICKY MENU JS INIT
     --------------------------------------------------------------*/
     $(window).on('scroll', function () {
       if ($(window).scrollTop() > 50) {
@@ -78,7 +65,7 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
     });
 
     /*--------------------------------------------------------------
-    fugu STICKY MENU JS INIT
+    AXIMO MENU SIDEBAR JS INIT
     --------------------------------------------------------------*/
     $(".barger-menu").on("click", function (e) {
       $(".aximo-sidemenu-column, .offcanvas-overlay").addClass("active");
@@ -89,7 +76,7 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
     });
 
     /*--------------------------------------------------------------
-    COUNTER JS INIT
+    AXIMO COUNTER JS INIT
     --------------------------------------------------------------*/
     var aximo_counter = $('#aximo-counter');
     if (aximo_counter.is_exist()) {
@@ -121,7 +108,7 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
     }
 
     /*--------------------------------------------------------------
-    fugu PRICING TABLE JS INIT
+    AXIMO IMAGE ROTATE JS INIT
     ------------------------------------------------------------*/
 
     var $rotateTwo = $('#rotatetwo');
@@ -132,7 +119,7 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
     });
 
     /*--------------------------------------------------------------
-    fugu PRICING TABLE JS INIT
+    AXIMO AUTO SLIDER JS INIT
     ------------------------------------------------------------*/
     var auto_slider = new Swiper('.aximo-auto-slider', {
       spaceBetween: 0,
@@ -148,7 +135,7 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
     });
 
     /*--------------------------------------------------------------
-    fugu PRICING TABLE JS INIT
+    AXIMO PROJECT SLIDER JS INIT
     ------------------------------------------------------------*/
     var aximo_project_slider = new Swiper(".aximo-project-slider", (_Swiper = {
       // Optional parameters
@@ -174,7 +161,7 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
     }), _Swiper));
 
     /*--------------------------------------------------------------
-    fugu PRICING TABLE JS INIT
+    AXIMO PROJECT SLIDER2 JS INIT
     ------------------------------------------------------------*/
     var aximo_project_slider2 = new Swiper(".aximo-project-slider2", {
       // Optional parameters
@@ -199,7 +186,7 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
     });
 
     /*--------------------------------------------------------------
-    fugu MAGNIFIC POPUP JS INIT
+    AXIMO MAGNIFIC POPUP JS INIT
     ------------------------------------------------------------*/
     var popup_youtube = $('.video-init');
     if (popup_youtube.is_exist()) {
@@ -210,7 +197,7 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
     }
 
     /*--------------------------------------------------------------
-    fugu MAGNIFIC POPUP JS INIT
+    AXIMO IMAGE SWIPE HOVER JS INIT
     ------------------------------------------------------------*/
 
     gsap.set('.aximo-service-increase-row img.swipeimage', {
@@ -262,142 +249,177 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
         return fade.reverse();
       });
     });
+
+    /*--------------------------------------------------------------
+    AXIMO PRICING TABLE JS INIT
+    ------------------------------------------------------------*/
+    // Table BTN Trigger
+    $("#l5-pricing-btn .toggle-btn").on("click", function (e) {
+      console.log($(e.target).parent().parent().hasClass("monthly-active"));
+      $(e.target).toggleClass("clicked");
+      if ($(e.target).parent().parent().hasClass("monthly-active")) {
+        $(e.target).parent().parent().removeClass("monthly-active").addClass("yearly-active");
+      } else {
+        $(e.target).parent().parent().removeClass("yearly-active").addClass("monthly-active");
+      }
+    });
+    $("[data-pricing-trigger]").on("click", function (e) {
+      $(e.target).addClass("active").siblings().removeClass("active");
+      var target = $(e.target).attr("data-target");
+      console.log($(target).attr("data-value-active") == "monthly");
+      if ($(target).attr("data-value-active") == "monthly") {
+        $(target).attr("data-value-active", "yearly");
+      } else {
+        $(target).attr("data-value-active", "monthly");
+      }
+    });
   }); /*End document ready*/
 
   $(window).on("resize", function () {}); // end window resize
 
-  $(window).on("load", function () {
-    /*--------------------------------------------------------------
-    fugu GALLERY MASONAY FILTER JS 01
-    ------------------------------------------------------------*/
-    // var fugu_gallery_masonay1 = $('#fugu-gallery-masonay1');
-    // if(fugu_gallery_masonay1.is_exist()){
-    //   var $container = $(fugu_gallery_masonay1),
-    //     colWidth = function () {
-    //       var w = $container.width(), 
-    //         columnNum = 1,
-    //         columnWidth = 0;
-    //       if (w > 1200) {
-    //         columnNum  = 4;
-    //       } else if (w > 900) {
-    //         columnNum  = 3;
-    //       } else if (w > 600) {
-    //         columnNum  = 2;
-    //       } else if (w > 450) {
-    //         columnNum  = 2;
-    //       } else if (w > 385) {
-    //         columnNum  = 1;
-    //       }
-    //       columnWidth = Math.floor(w/columnNum);
-    //       $container.find('.fugu-grid-item').each(function() {
-    //         var $item = $(this),
-    //           multiplier_w = $item.attr('class').match(/fugu-grid-item-w(\d)/),
-    //           multiplier_h = $item.attr('class').match(/fugu-grid-item-h(\d)/),
-    //           width = multiplier_w ? columnWidth*multiplier_w[1] : columnWidth,
-    //           height = multiplier_h ? columnWidth*multiplier_h[1]*0.4-12 : columnWidth*0.5;
-    //         $item.css({
-    //           width: width,
-    //           // height: height
-    //         });
-    //       });
-    //       return columnWidth;
-    //     },
-    //     isotope = function () {
-    //       $container.isotope({
-    //         resizable: false,
-    //         itemSelector: '.fugu-grid-item',
-    //         masonry: {
-    //           columnWidth: colWidth(),
-    //           gutterWidth: 0
-    //         }
-    //       });
-    //     };
-    //   isotope();
-    //   $(window).resize(isotope);
-    //   var $optionSets = $('.fugu-gallery-menu .option-set'),
-    //       $optionLinks = $optionSets.find('li');
-    //   $optionLinks.click(function(){
-    //   var $this = $(this);
-    //     var $optionSet = $this.parents('.option-set');
-    //     $optionSet.find('.active').removeClass('active');
-    //     $this.addClass('active');
-
-    //     // make option object dynamically, i.e. { filter: '.my-filter-class' }
-    //     var options = {},
-    //         key = $optionSet.attr('data-option-key'),
-    //         value = $this.attr('data-option-value');
-    //     // parse 'false' as false boolean
-    //     value = value === 'false' ? false : value;
-    //     options[ key ] = value;
-    //     if ( key === 'layoutMode' && typeof changeLayoutMode === 'function' ) {
-    //       // changes in layout modes need extra logic
-    //       changeLayoutMode( $this, options )
-    //     } else {
-    //       // creativewise, apply new options
-    //       $container.isotope( options );
-    //     }
-    //     return false;
-    //   });
-    // }
-  }); // End window LODE
+  $(window).on("load", function () {}); // End window LODE
 
   /*--------------------------------------------------------------
-  fugu MAP JS
+  AXIMO MAP JS
   ------------------------------------------------------------*/
-  // var google_map = $('#map');
-  // if(google_map.is_exist()){
-  //   google.maps.event.addDomListener(window, 'load', init);
-  //   function init() {
-  //     var mapOptions = {
-  //         zoom: 11,
-  //         scrollwheel: false,
-  //         navigationControl: false,
-  //         mapTypeControl: false,
-  //         scaleControl: false,
-  //         draggable: true,
-  //         disableDefaultUI: true,
-  //         center: new google.maps.LatLng(40.6700, -73.9400), 
-  //          styles: [{"featureType":"landscape.man_made","elementType":"geometry","stylers":[{"color":"#f7f1df"}]},{"featureType":"landscape.natural","elementType":"geometry","stylers":[{"color":"#d0e3b4"}]},{"featureType":"landscape.natural.terrain","elementType":"geometry","stylers":[{"visibility":"off"}]},{"featureType":"poi","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"poi.business","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"poi.medical","elementType":"geometry","stylers":[{"color":"#fbd3da"}]},{"featureType":"poi.park","elementType":"geometry","stylers":[{"color":"#bde6ab"}]},{"featureType":"road","elementType":"geometry.stroke","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#ffe15f"}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"color":"#efd151"}]},{"featureType":"road.arterial","elementType":"geometry.fill","stylers":[{"color":"#ffffff"}]},{"featureType":"road.local","elementType":"geometry.fill","stylers":[{"color":"black"}]},{"featureType":"transit.station.airport","elementType":"geometry.fill","stylers":[{"color":"#cfb2db"}]},{"featureType":"water","elementType":"geometry","stylers":[{"color":"#a2daf2"}]}]
-  //                 };
-  //       var mapElement = document.getElementById('map');
+  var google_map = $('#map');
+  if (google_map.is_exist()) {
+    var init = function init() {
+      var mapOptions = {
+        zoom: 11,
+        scrollwheel: false,
+        navigationControl: false,
+        mapTypeControl: false,
+        scaleControl: false,
+        draggable: true,
+        disableDefaultUI: true,
+        center: new google.maps.LatLng(40.6700, -73.9400),
+        styles: [{
+          "featureType": "landscape.man_made",
+          "elementType": "geometry",
+          "stylers": [{
+            "color": "#f7f1df"
+          }]
+        }, {
+          "featureType": "landscape.natural",
+          "elementType": "geometry",
+          "stylers": [{
+            "color": "#d0e3b4"
+          }]
+        }, {
+          "featureType": "landscape.natural.terrain",
+          "elementType": "geometry",
+          "stylers": [{
+            "visibility": "off"
+          }]
+        }, {
+          "featureType": "poi",
+          "elementType": "labels",
+          "stylers": [{
+            "visibility": "off"
+          }]
+        }, {
+          "featureType": "poi.business",
+          "elementType": "all",
+          "stylers": [{
+            "visibility": "off"
+          }]
+        }, {
+          "featureType": "poi.medical",
+          "elementType": "geometry",
+          "stylers": [{
+            "color": "#fbd3da"
+          }]
+        }, {
+          "featureType": "poi.park",
+          "elementType": "geometry",
+          "stylers": [{
+            "color": "#bde6ab"
+          }]
+        }, {
+          "featureType": "road",
+          "elementType": "geometry.stroke",
+          "stylers": [{
+            "visibility": "off"
+          }]
+        }, {
+          "featureType": "road",
+          "elementType": "labels",
+          "stylers": [{
+            "visibility": "off"
+          }]
+        }, {
+          "featureType": "road.highway",
+          "elementType": "geometry.fill",
+          "stylers": [{
+            "color": "#ffe15f"
+          }]
+        }, {
+          "featureType": "road.highway",
+          "elementType": "geometry.stroke",
+          "stylers": [{
+            "color": "#efd151"
+          }]
+        }, {
+          "featureType": "road.arterial",
+          "elementType": "geometry.fill",
+          "stylers": [{
+            "color": "#ffffff"
+          }]
+        }, {
+          "featureType": "road.local",
+          "elementType": "geometry.fill",
+          "stylers": [{
+            "color": "black"
+          }]
+        }, {
+          "featureType": "transit.station.airport",
+          "elementType": "geometry.fill",
+          "stylers": [{
+            "color": "#cfb2db"
+          }]
+        }, {
+          "featureType": "water",
+          "elementType": "geometry",
+          "stylers": [{
+            "color": "#a2daf2"
+          }]
+        }]
+      };
+      var mapElement = document.getElementById('map');
+      var map = new google.maps.Map(mapElement, mapOptions);
+      var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(40.6700, -73.9400),
+        map: map,
+        icon: 'assets/images/all-img/contact/map.png',
+        title: 'fugu'
+      });
+      var contentString = '<div id="content">' + '<div id="tpw">' + '<h3>fugu' + '</div>';
+      var infowindow = new google.maps.InfoWindow({
+        content: contentString,
+        maxWidth: 280
+      });
+      marker.setAnimation(google.maps.Animation.BOUNCE);
+      setTimeout(function () {
+        marker.setAnimation(null);
+      }, 750); //time it takes for one bounce   
 
-  //       var map = new google.maps.Map(mapElement, mapOptions);
+      google.maps.event.addListener(marker, 'click', function () {
+        infowindow.open(map, marker);
+      });
+    };
+    google.maps.event.addDomListener(window, 'load', init);
+  }
 
-  //       var marker = new google.maps.Marker({
-  //         position: new google.maps.LatLng(40.6700, -73.9400),
-  //         map: map,
-  //         icon: 'assets/images/all-img/contact/map.png',
-  //         title: 'fugu'
-  //       });
-  //       var contentString = '<div id="content">' +
-  //           '<div id="tpw">' +
-  //           '<h3>fugu' +
-  //           '</div>';
-
-  //       var infowindow = new google.maps.InfoWindow({
-  //           content: contentString,
-  //           maxWidth: 280
-  //       });
-
-  //       marker.setAnimation(google.maps.Animation.BOUNCE);
-  //       setTimeout(function(){ marker.setAnimation(null); }, 750);  //time it takes for one bounce   
-
-  //       google.maps.event.addListener(marker, 'click', function () {
-  //           infowindow.open(map, marker);
-  //       });
-
-  //     }
-
-  // }
-
-  // wow js
-  // var wow = new WOW({
-  //   mobile: false,       // default
-  //   tablet:false
-  // });
-  // wow.init();
-
-  AOS.init({
-    duration: 1200
+  //AXIMO wow js
+  var wow = new WOW({
+    mobile: false,
+    // default
+    tablet: false
   });
+  wow.init();
+
+  // AOS.init({
+  //   duration: 1200,
+  // })
 })(jQuery);
