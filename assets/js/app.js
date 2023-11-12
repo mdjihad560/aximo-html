@@ -124,9 +124,9 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
     var auto_slider = new Swiper('.aximo-auto-slider', {
       spaceBetween: 0,
       centeredSlides: true,
-      speed: 7000,
+      speed: 6000,
       autoplay: {
-        delay: 1
+        delay: .5
       },
       loop: true,
       slidesPerView: 'auto',
