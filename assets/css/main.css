@@ -379,8 +379,8 @@
   .site-menu-main .nav-link-item {
     padding-top: 15px !important;
     padding-bottom: 15px !important;
-    padding-left: 20px !important;
-    padding-right: 20px !important;
+    padding-left: 19px !important;
+    padding-right: 19px !important;
   }
 }
 
@@ -463,6 +463,27 @@
   padding: 4px 20px;
   font-weight: 700;
   color: #000;
+  position: relative;
+}
+.site-menu-main .sub-menu--item > a .menu-item-text {
+  position: relative;
+  transition: all 0.3s ease;
+}
+.site-menu-main .sub-menu--item > a .menu-item-text::after{
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: auto;
+  right: 0;
+  height: 2px;
+  width: 0;
+  background-color: #202030;
+  transition: all 0.3s ease;
+}
+.site-menu-main .sub-menu--item > a:hover .menu-item-text::after {
+  left: 0;
+  right: auto;
+  width: 100%;
 }
 
 @media (min-width: 992px) {

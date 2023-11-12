@@ -186,6 +186,31 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
     });
 
     /*--------------------------------------------------------------
+    AXIMO PROJECT SLIDER JS INIT
+    ------------------------------------------------------------*/
+    var aximo_instagram_slider = new Swiper(".aximo-instagram-slider", {
+      loop: true,
+      // Responsive breakpoints
+      breakpoints: {
+        640: {
+          slidesPerView: 2
+        },
+        900: {
+          slidesPerView: 3
+        },
+        1200: {
+          slidesPerView: 4,
+          autoplay: {
+            delay: 1
+          }
+        },
+        1400: {
+          slidesPerView: 5
+        }
+      }
+    });
+
+    /*--------------------------------------------------------------
     AXIMO MAGNIFIC POPUP JS INIT
     ------------------------------------------------------------*/
     var popup_youtube = $('.video-init');
@@ -391,7 +416,7 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
       var marker = new google.maps.Marker({
         position: new google.maps.LatLng(40.6700, -73.9400),
         map: map,
-        icon: 'assets/images/all-img/contact/map.png',
+        // icon: 'assets/images/all-img/contact/map.png',
         title: 'fugu'
       });
       var contentString = '<div id="content">' + '<div id="tpw">' + '<h3>fugu' + '</div>';
