@@ -8008,7 +8008,7 @@ a.comment-reply {
     transform: scale(1, 1);
   }
 }
-.arcatec-preloader-wrap {
+.aximo-preloader-wrap {
   position: fixed;
   z-index: 1222;
   width: 100%;
@@ -8020,7 +8020,7 @@ a.comment-reply {
   align-items: center;
 }
 
-.arcatec-preloader {
+.aximo-preloader {
   display: inline-block;
   position: relative;
   width: 74px;
@@ -8029,7 +8029,7 @@ a.comment-reply {
   justify-content: center;
 }
 
-.arcatec-preloader div {
+.aximo-preloader div {
   position: absolute;
   top: 33px;
   width: 13px;
@@ -8039,27 +8039,27 @@ a.comment-reply {
   animation-timing-function: cubic-bezier(0, 1, 1, 0);
 }
 
-.arcatec-preloader div:nth-child(1) {
+.aximo-preloader div:nth-child(1) {
   left: 8px;
-  animation: arcatec-preloader1 0.6s infinite;
+  animation: aximo-preloader1 0.6s infinite;
 }
 
-.arcatec-preloader div:nth-child(2) {
+.aximo-preloader div:nth-child(2) {
   left: 8px;
-  animation: arcatec-preloader2 0.6s infinite;
+  animation: aximo-preloader2 0.6s infinite;
 }
 
-.arcatec-preloader div:nth-child(3) {
+.aximo-preloader div:nth-child(3) {
   left: 32px;
-  animation: arcatec-preloader2 0.6s infinite;
+  animation: aximo-preloader2 0.6s infinite;
 }
 
-.arcatec-preloader div:nth-child(4) {
+.aximo-preloader div:nth-child(4) {
   left: 56px;
-  animation: arcatec-preloader3 0.6s infinite;
+  animation: aximo-preloader3 0.6s infinite;
 }
 
-@keyframes arcatec-preloader1 {
+@keyframes aximo-preloader1 {
   0% {
     transform: scale(0);
   }
@@ -8067,7 +8067,7 @@ a.comment-reply {
     transform: scale(1);
   }
 }
-@keyframes arcatec-preloader3 {
+@keyframes aximo-preloader3 {
   0% {
     transform: scale(1);
   }
@@ -8075,7 +8075,7 @@ a.comment-reply {
     transform: scale(0);
   }
 }
-@keyframes arcatec-preloader2 {
+@keyframes aximo-preloader2 {
   0% {
     transform: translate(0, 0);
   }

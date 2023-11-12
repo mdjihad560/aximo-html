@@ -38,7 +38,7 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
     AXIMO PRELOADER JS INIT
     --------------------------------------------------------------*/
 
-    $(".arcatec-preloader-wrap").fadeOut(500);
+    $(".aximo-preloader-wrap").fadeOut(500);
 
     /*--------------------------------------------------------------
     AXIMO SKILLBAR JS INIT
