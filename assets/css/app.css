@@ -2900,6 +2900,11 @@ button#aximo-submit-btn2:hover .aximo-label-up {
 .comment-form textarea {
   height: 150px;
 }
+@media (max-width: 767px) {
+  .comment-form textarea {
+    height: 100px;
+  }
+}
 
 #comment-btn {
   width: 180px;
@@ -7474,9 +7479,6 @@ a.aximo-connect-login img {
   border-radius: 20px;
   background-color: #FFFDF8;
   border: 1px solid var(--heading-color);
-}
-.single-post-item:last-child {
-  margin-bottom: 0;
 }
 
 .post-thumbnail {
