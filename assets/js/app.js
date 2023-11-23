@@ -211,6 +211,17 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
     });
 
     /*--------------------------------------------------------------
+    AXIMO TESTIMONIAL SLIDER JS INIT
+    ------------------------------------------------------------*/
+    var aximo_t_slider = new Swiper(".aximo-testimonial-slider", {
+      slidesPerView: 1,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true
+      }
+    });
+
+    /*--------------------------------------------------------------
     AXIMO MAGNIFIC POPUP JS INIT
     ------------------------------------------------------------*/
     var popup_youtube = $('.video-init');

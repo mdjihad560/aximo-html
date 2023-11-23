@@ -402,7 +402,7 @@
     transform: translatey(20px);
     opacity: 0;
     visibility: hidden;
-    min-width: 200px;
+    min-width: 205px;
     border-radius: 6px;
 }
 .site-menu-main .sub-menu:before {
