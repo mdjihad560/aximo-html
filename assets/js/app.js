@@ -224,6 +224,33 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
     /*--------------------------------------------------------------
     AXIMO MAGNIFIC POPUP JS INIT
     ------------------------------------------------------------*/
+    var aximo_iconbox_slider = new Swiper(".aximo-iconbox-slider", {
+      loop: true,
+      spaceBetween: 30,
+      grabCursor: true,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev'
+      },
+      breakpoints: {
+        0: {
+          slidesPerView: 1
+        },
+        900: {
+          slidesPerView: 1.5
+        },
+        1200: {
+          slidesPerView: 1.5
+        },
+        1400: {
+          slidesPerView: 2.5
+        }
+      }
+    });
+
+    /*--------------------------------------------------------------
+    AXIMO MAGNIFIC POPUP JS INIT
+    ------------------------------------------------------------*/
     var popup_youtube = $('.video-init');
     if (popup_youtube.is_exist()) {
       popup_youtube.magnificPopup({
