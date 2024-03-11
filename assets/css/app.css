@@ -7015,14 +7015,14 @@ img.aximo-video-circle {
   text-align: center;
 }
 
-.aximo-footer-shape {
+.aximo-footer-shapev6 {
   position: absolute;
   top: 9%;
   right: 4%;
   animation: float-top-bottom 6s ease-in-out infinite;
 }
 @media (max-width: 991px) {
-  .aximo-footer-shape {
+  .aximo-footer-shapev6 {
     display: none;
   }
 }
