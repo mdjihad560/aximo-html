@@ -122,7 +122,6 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
     AXIMO AUTO SLIDER JS INIT
     ------------------------------------------------------------*/
     var auto_slider = new Swiper('.aximo-auto-slider', {
-      spaceBetween: 0,
       centeredSlides: true,
       speed: 6000,
       autoplay: {
@@ -211,6 +210,31 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
     });
 
     /*--------------------------------------------------------------
+    AXIMO PROJECT SLIDER JS INIT
+    ------------------------------------------------------------*/
+    var aximo_resizingslider = new Swiper(".aximo-image-resizing", {
+      loop: true,
+      // Responsive breakpoints
+      breakpoints: {
+        640: {
+          slidesPerView: 2
+        },
+        900: {
+          slidesPerView: 3
+        },
+        1200: {
+          slidesPerView: 4,
+          autoplay: {
+            delay: 1
+          }
+        },
+        1400: {
+          slidesPerView: 5
+        }
+      }
+    });
+
+    /*--------------------------------------------------------------
     AXIMO TESTIMONIAL SLIDER JS INIT
     ------------------------------------------------------------*/
     var aximo_t_slider = new Swiper(".aximo-testimonial-slider", {
@@ -219,6 +243,13 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
         el: ".swiper-pagination",
         clickable: true
       }
+    });
+
+    /*--------------------------------------------------------------
+    AXIMO TESTIMONIAL SLIDER TWO JS INIT
+    ------------------------------------------------------------*/
+    var aximo_t_slider2 = new Swiper(".aximo-testimonial-slider2", {
+      slidesPerView: 1
     });
 
     /*--------------------------------------------------------------
